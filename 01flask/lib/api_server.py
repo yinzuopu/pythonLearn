@@ -20,7 +20,7 @@ Flask   2.1.2
 """
 
 app = Flask(__name__)
-json_path = "users.json"  # 保存用户json信息的路径
+json_path = "../conf/users.json"  # 保存用户json信息的路径
 
 
 def get_json(json_path):
@@ -132,11 +132,3 @@ def delete_user(user_id):
     users.remove(user[0])
     write_json(json_path, {"users": users})
     return jsonify(user), 200
-
-
-if __name__ == '__main__':
-    app.run(
-        host="127.0.0.1",
-        port=8888,
-        debug=True
-    )
